@@ -1,7 +1,15 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export default function SkillsTools() {
     return (
-      <div className="h-full w-full flex items-center justify-center">
-        <h2 className="text-4xl font-nunito font-bold">Skills & Tools Section</h2>
+      <div className="h-full w-full flex flex-col items-center justify-center">
+        <p className="font-ocra text-2xl md:text-lg font-regular mt-8 md:mt-12">
+              - Tech Stack -
+            </p>
+            <p className="font-ocra text-xl">NextJS</p>
+            <p className="font-ocra text-xl">MERN</p>
+            
       </div>
     );
   }
