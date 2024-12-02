@@ -2,15 +2,42 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const nunito = localFont({
+  src: [
+    {
+      path: './fonts/Nunito-Light.ttf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: './fonts/Nunito-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/Nunito-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: './fonts/Nunito-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: './fonts/Nunito-ExtraBold.ttf',
+      weight: '800',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-nunito',
+  display: 'swap',
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const ocraext = localFont({
+  src: './fonts/OCRAEXT.ttf',
+  variable: '--font-ocra',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -20,16 +47,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html lang="en" className={`${nunito.variable} ${ocraext.variable}`}>
+      <body className="font-nunito antialiased">{children}</body>
     </html>
   );
 }
