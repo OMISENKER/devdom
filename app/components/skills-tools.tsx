@@ -1,6 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
-
 export default function SkillsTools() {
     return (
       <div className="h-full w-full flex flex-col items-center justify-center">
