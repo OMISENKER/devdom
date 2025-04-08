@@ -25,6 +25,10 @@ body {
   display: none;
 }
 
+.project-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 /* Hide scrollbar for IE, Edge and Firefox */
 .snap-y {
   -ms-overflow-style: none; /* IE and Edge */

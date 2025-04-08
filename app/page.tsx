@@ -36,11 +36,11 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="h-screen w-full snap-y snap-mandatory overflow-y-scroll bg-background">
+    <main className="h-svh w-full snap-y snap-mandatory overflow-y-scroll bg-background">
       <div
         className={`fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 transition-all duration-500 ease-in-out will-change-transform pointer-events-none ${
           scrolled
-            ? "top-[2.5rem] transform -translate-x-1/2 scale-[0.4] md:scale-[0.25]"
+            ? "top-[2.5rem] transform -translate-x-1/2 scale-[0.4] md:scale-[0.35] lg:scale-[0.25]"
             : ""
         }`}
       >
@@ -56,28 +56,28 @@ export default function Home() {
 
       <div
         ref={heroRef}
-        className="h-screen w-full snap-start flex items-center justify-center"
+        className="h-svh mt-0 top-0 w-full snap-start flex items-center justify-center"
       >
         <Hero />
       </div>
 
-      <section className="h-screen w-full snap-start flex items-center justify-center">
+      <section className="h-dvh w-full snap-start flex items-center justify-center">
         <AboutMe />
       </section>
 
-      <section className="h-screen w-full snap-start flex items-center justify-center">
+      <section className="h-dvh w-full snap-start flex items-center justify-center">
         <Experience />
       </section>
 
-      <section className="h-screen w-full snap-start flex items-center justify-center">
+      <section className="h-dvh w-full snap-start flex items-center justify-center">
         <Projects />
       </section>
 
-      <section className="h-screen w-full snap-start flex items-center justify-center">
+      <section className="h-dvh w-full snap-start flex items-center justify-center">
         <SkillsTools />
       </section>
 
-      <section className="h-screen w-full snap-start flex items-center justify-center">
+      <section className="h-dvh w-full snap-start flex items-center justify-center">
         <Certificates />
       </section>
     </main>

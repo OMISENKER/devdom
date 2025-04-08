@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function AboutMe() {
   return (
     <div className="h-full w-full flex items-center justify-center px-4 md:px-0">
-      <div className="grid grid-cols-1 md:grid-cols-5 w-full md:w-1/2 gap-6 items-center justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-5 w-full md:w-2/3 lg:w-1/2 gap-6 items-center justify-center">
         <div className="col-span-1 md:col-span-2 flex items-center justify-center relative">
           <Image
             src="/images/portrait-1.jpg"
@@ -16,13 +16,13 @@ export default function AboutMe() {
           />
         </div>
         <div className="col-span-1 md:col-span-3 flex flex-col items-center md:items-start justify-start text-center md:text-left">
-          <p className="font-nunito text-base md:text-lg font-regular ml-1">
+          <p className="font-nunito text-base md:text-lg font-regular ml-1 ">
             Hi I{"'"}m,
           </p>
           <h1 className="font-ocra text-2xl md:text-4xl font-bold mt-2">
             Dominique Eclavia
           </h1>
-          <p className="font-nunito text-base md:text-lg font-regular mt-4 ml-1">
+          <p className="font-nunito text-base md:text-lg font-regular mt-4 mx-10 md:mx-1 text-pretty">
             A NextJS and MERN Full-Stack Web Developer with over a year of
             combined work and organizational experience.
           </p>

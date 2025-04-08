@@ -4,11 +4,11 @@ import Link from "next/link";
 export default function Projects() {
   return (
     <section className="w-full h-screen py-8 px-4 md:px-8 flex flex-col items-center overflow-hidden">
-      <h2 className="text-xl font-ocra font-bold mb-6 mt-8 md:mt-12 text-center">
+      <h2 className="text-lg md:text-xl font-ocra font-bold mb-6 mt-8 md:mt-12 text-center">
         - Some of my Projects -
       </h2>
 
-      <div className="w-full flex-1 flex flex-col md:flex-row gap-4 md:gap-6 items-start md:items-start justify-start md:justify-center overflow-y-auto overflow-x-hidden max-w-6xl md:pt-4">
+      <div className="w-full flex-1 flex flex-col md:flex-row gap-4 md:gap-6 items-start md:items-start justify-start md:justify-center overflow-y-auto overflow-x-hidden max-w-6xl md:pt-4 project-scroll">
         {/* ATS Project */}
         <div className="w-full md:w-[45%] xl:w-[49%] shrink-0">
           <div className="bg-zinc-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
