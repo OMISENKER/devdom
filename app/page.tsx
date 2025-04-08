@@ -45,7 +45,7 @@ export default function Home() {
         }`}
       >
         <Image
-          src="/logos/Logo v6 white.svg"
+          src="/logos/Logov6white.svg"
           alt="DevDom"
           width={800}
           height={200}
