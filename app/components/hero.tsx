@@ -1,18 +1,31 @@
-import { HiArrowNarrowDown } from "react-icons/hi";
-
 export default function Hero() {
   return (
-    <div className="relative h-svh w-full mt-0 top-0 pointer-events-none flex items-center justify-center bg-[url('/assets/grid.png')] bg-no-repeat bg-cover bg-end">
-      <h1 className="text-lg md:text-3xl font-ocra font-bold z-30 mt-28 md:mt-32 lg:mt-40">
-        Full-Stack Web Developer
-      </h1>
-      <div className="absolute mt-20 z-40 bottom-14 md:bottom-10 animate-pulse flex flex-col items-center gap-1">
-        <HiArrowNarrowDown />
-        <p className="text-md font-ocra">scroll down</p>
+    <div className="relative h-svh w-full flex flex-col justify-center px-8 md:px-16 lg:px-24 xl:px-32">
+      <div>
+        <h1
+          className="font-display italic font-bold leading-[0.85] tracking-tight"
+          style={{
+            fontSize: "clamp(3.5rem, 9vw, 8.5rem)",
+            color: "var(--color-text-primary)",
+          }}
+        >
+          <span className="block">Dominique</span>
+          <span className="block">Eclavia</span>
+        </h1>
+        <div className="ruled-line--accent mt-6 mb-5" />
+        <p
+          className="font-body uppercase tracking-[0.3em] text-sm"
+          style={{ color: "var(--color-text-primary)" }}
+        >
+          Full-Stack Web Developer
+        </p>
       </div>
-
-      <div className="absolute z-10 h-full w-full  bg-black opacity-85" />
-      <div className="absolute z-10 h-1/2 w-2/3 rounded-full bg-black opacity-90 blur-3xl" />
+      <p
+        className="absolute bottom-10 left-8 md:left-16 lg:left-24 xl:left-32 font-body text-xs uppercase tracking-widest"
+        style={{ color: "var(--color-muted)" }}
+      >
+        Pasig, NCR, Philippines
+      </p>
     </div>
   );
 }

@@ -1,67 +1,132 @@
-import Link from "next/link";
+const experiences = [
+  {
+    period: "Current",
+    company: "WhereToCoffee",
+    companyUrl: "https://wheretocoffee.app",
+    role: "Full-Stack Developer",
+    type: "Remote",
+    description: "Building the platform end-to-end — Supabase, Mapbox, Cloudflare",
+  },
+  {
+    period: "Apr – Jun 2025",
+    company: "Eskwelabs",
+    companyUrl: null,
+    role: "Innovation Fellowship Intern",
+    type: "Hybrid",
+    description:
+      "Real-time business dashboard with Python, Google Sheets, OpenAI API, Looker Studio",
+  },
+  {
+    period: "Oct 2024 – Feb 2025",
+    company: "Outlier",
+    companyUrl: null,
+    role: "AI Code Expert Annotator",
+    type: "Remote",
+    description: "AI/Web Developer expert for tool-use evaluation and model training",
+  },
+  {
+    period: "Oct 2023 – Jun 2024",
+    company: "ALPHA",
+    companyUrl: "https://alpha-sti.vercel.app/",
+    role: "Full-Stack Dev / Front-End Head",
+    type: "On-site",
+    description: "Led 9 front-end developers — org website, event registration platform",
+  },
+  {
+    period: "Mar – Jul 2023",
+    company: "Carisle Media",
+    companyUrl: "https://carislemedia.com/",
+    role: "Web Developer",
+    type: "Remote",
+    description: "ATS, CEO's professional site, company website — HTML5, CSS3, JS",
+  },
+];
 
 export default function Experience() {
   return (
-    <div className="h-full w-full flex flex-col items-center justify-center text-base md:text-lg lg:text-xl px-4 md:px-0">
-      <div className="flex flex-col items-center justify-center mt-8 w-full max-w-2xl">
-        <p className="font-ocra mb-6 text-lg md:text-xl">- Past Positions -</p>
+    <div className="h-svh w-full flex flex-col justify-center px-8 md:px-16 lg:px-24 xl:px-32">
+      <div className="w-full max-w-4xl">
 
-        {/* Work Experience */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-8 w-full md:mr-20">
-          <div className="col-span-1 text-center md:text-end mb-0">
-            <p className="font-ocra">Work:</p>
-          </div>
-          <div className="col-span-1">
-            <div className="flex gap-2 justify-center md:justify-start">
-              <div className="flex flex-col items-center md:items-start">
-                <p className="font-ocra text-xl">Web Developer @</p>
-                <Link href="https://carislemedia.com/" target="_blank">
-                  <p className="font-ocra underline">Carisle Media</p>
-                </Link>
-                <p className="font-nunito font-light text-sm  mt-2">2023</p>
-                <p className="text-base md:text-base mt-2">Developed:</p>
-                <ul className="text-base text-center md:text-left  md:text-base list-disc list-inside">
-                  <li>HR Applicant Tracking System</li>
-                  <li>C.E.O.&apos;s professional website</li>
-                  <li>Carisle Media&apos;s company website.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+        {/* Section header */}
+        <div className="flex items-baseline gap-5 mb-5">
+          <h2
+            className="font-display italic font-bold"
+            style={{
+              fontSize: "clamp(1.8rem, 4vw, 4.5rem)",
+              color: "var(--color-text-primary)",
+            }}
+          >
+            Experience
+          </h2>
+          <span
+            className="font-body text-xs uppercase tracking-[0.3em]"
+            style={{ color: "var(--color-muted)" }}
+          >
+            02
+          </span>
         </div>
 
-        {/* Organizational Experience */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full md:mr-20">
-          <div className="col-span-1 text-center md:text-end mb-0 ">
-            <p className="font-ocra">Org.:</p>
-          </div>
-          <div className="col-span-1">
-            <div className="flex gap-2 justify-center md:justify-start">
-              <div className="flex flex-col items-center md:items-start">
-                <p className="font-ocra text-center md:text-left text-xl">
-                  Full-Stack Developer &
-                  <br />
-                  Front-End lead @
-                </p>
-                <Link href="https://alpha-sti.vercel.app/" target="_blank">
-                  <p className="font-ocra underline text-center md:text-left">
-                    Alliance of <br /> Leading Programmers
+        <div className="ruled-line" />
+
+        {/* Entry list */}
+        <div
+          className="overflow-y-auto inner-scroll"
+          style={{ maxHeight: "calc(100svh - 11rem)" }}
+        >
+          {experiences.map((exp, i) => (
+            <div key={i}>
+              <div className="grid grid-cols-[1fr_2fr] gap-4 py-4">
+                {/* Left: period + company */}
+                <div>
+                  <p
+                    className="font-body text-xs uppercase tracking-wider"
+                    style={{ color: "var(--color-muted)" }}
+                  >
+                    {exp.period}
                   </p>
-                </Link>
-                <p className="font-nunito font-light text-sm mt-2">
-                  2023 - 2024
-                </p>
-                <p className="text-base mt-2">
-                  Led a team of 10 developers to develop:
-                </p>
-                <ul className="text-base text-center md:text-left list-disc list-inside">
-                  <li>Organization&apos;s website</li>
-                  <li>Event Registration website</li>
-                </ul>
+                  {exp.companyUrl ? (
+                    <a
+                      href={exp.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-auric font-display italic"
+                      style={{ fontSize: "clamp(1rem, 1.8vw, 1.8rem)" }}
+                    >
+                      {exp.company}
+                    </a>
+                  ) : (
+                    <p
+                      className="font-display italic"
+                      style={{
+                        fontSize: "clamp(1rem, 1.8vw, 1.8rem)",
+                        color: "var(--color-text-primary)",
+                      }}
+                    >
+                      {exp.company}
+                    </p>
+                  )}
+                </div>
+                {/* Right: role + description */}
+                <div>
+                  <p
+                    className="font-body text-sm lg:text-base uppercase tracking-wider"
+                    style={{ color: "var(--color-text-primary)" }}
+                  >
+                    {exp.role}
+                  </p>
+                  <p
+                    className="font-body text-xs lg:text-sm mt-1 leading-relaxed"
+                    style={{ color: "var(--color-muted)" }}
+                  >
+                    {exp.type} — {exp.description}
+                  </p>
+                </div>
               </div>
+              <div className="ruled-line" />
             </div>
-          </div>
+          ))}
         </div>
+
       </div>
     </div>
   );

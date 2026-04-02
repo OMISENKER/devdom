@@ -9,15 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "var(--color-bg)",
+        surface: "var(--color-surface)",
+        accent: "var(--color-accent)",
+        muted: "var(--color-muted)",
       },
       fontFamily: {
-        nunito: ["var(--font-nunito)"],
-        ocra: ["var(--font-ocra)"],
-      },
-      scale: {
-        '25': '0.25',
+        display: ["var(--font-display)", "Georgia", "serif"],
+        body: ["var(--font-body)", "Georgia", "serif"],
       },
     },
   },

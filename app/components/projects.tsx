@@ -1,163 +1,188 @@
 import Image from "next/image";
-import Link from "next/link";
+
+type MediaConfig =
+  | { type: "image"; src: string; alt: string }
+  | { type: "video"; src: string }
+  | { type: "placeholder"; text: string };
+
+type Project = {
+  number: string;
+  name: string;
+  url: string;
+  status: string;
+  description: string;
+  stack: string[];
+  media: MediaConfig;
+};
+
+const projects: Project[] = [
+  {
+    number: "01",
+    name: "WhereToCoffee",
+    url: "https://wheretocoffee.app",
+    status: "Live",
+    description:
+      "Full-stack coffee shop discovery platform with a public landing page and a fully functional app with real-time data.",
+    stack: ["ReactJS", "Supabase", "Mapbox", "Cloudflare"],
+    media: { type: "placeholder", text: "wheretocoffee.app" },
+  },
+  {
+    number: "02",
+    name: "AI-driven ATS",
+    url: "https://neoats-applicant.vercel.app/",
+    status: "Deployed",
+    description:
+      "HR Applicant Tracking System with AI candidate scoring, interview scheduling, and a complete hiring pipeline.",
+    stack: ["MERN Stack", "OpenAI API", "MongoDB"],
+    media: { type: "image", src: "/images/ats.png", alt: "AI-driven Applicant Tracking System" },
+  },
+  {
+    number: "03",
+    name: "MyDevJourney",
+    url: "https://github.com/OMISENKER/my-developer-journey",
+    status: "Hackathon Winner",
+    description:
+      "Developer goal tracking app with GitHub OAuth, daily streaks, and AI-powered Developer Recap insights.",
+    stack: ["Next.js", "MongoDB", "GitHub OAuth"],
+    media: { type: "video", src: "/videos/devjourney.webm" },
+  },
+];
 
 export default function Projects() {
   return (
-    <section className="w-full h-screen py-8 px-4 md:px-8 flex flex-col items-center overflow-hidden">
-      <h2 className="text-lg md:text-xl font-ocra font-bold mb-6 mt-8 md:mt-12 text-center">
-        - Some of my Projects -
-      </h2>
+    <div className="h-svh w-full flex flex-col justify-center px-8 md:px-16 lg:px-24 xl:px-32">
+      <div className="w-full max-w-5xl">
 
-      <div className="w-full flex-1 flex flex-col md:flex-row gap-4 md:gap-6 items-start md:items-start justify-start md:justify-center overflow-y-auto overflow-x-hidden max-w-6xl md:pt-4 project-scroll">
-        {/* ATS Project */}
-        <div className="w-full md:w-[45%] xl:w-[49%] shrink-0">
-          <div className="bg-zinc-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-            <div className="p-4 md:p-5">
-              <Link href="https://neoats-applicant.vercel.app/" target="_blank">
-                <h3 className="text-lg md:text-xl font-ocra font-bold mb-2 text-white hover:underline">
-                  AI-driven Applicant Tracking System
-                </h3>
-              </Link>
-
-              <div className="mb-3">
-                <Link
-                  href="https://neoats-hr-react.vercel.app/login"
-                  target="_blank"
-                >
-                  <p className="text-xs md:text-sm text-red-300 hover:underline">
-                    Finished & Deployed | Currently on-hold for acquisition
-                  </p>
-                </Link>
-              </div>
-
-              {/* Project Image */}
-              <div className="bg-zinc-800 h-24 md:h-32 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
-                <Link
-                  href="https://neoats-applicant.vercel.app/"
-                  target="_blank"
-                >
-                  <Image
-                    src="/images/ats.png"
-                    alt="Project Image"
-                    width={500}
-                    height={500}
-                    className="w-full h-full object-cover rounded-lg"
-                  />
-                </Link>
-              </div>
-
-              {/* Project Description */}
-              <div className="text-zinc-300 space-y-1.5">
-                <p className="text-sm md:text-base">
-                  HR Applicant Tracking System:
-                </p>
-                <ul className="list-disc list-inside space-y-1 ml-2 text-xs md:text-sm">
-                  <li>
-                    A WebApp that allows HR to track and manage the hiring
-                    process.
-                  </li>
-                  <li>AI-powered Candidate Scorer.</li>
-                  <li>Has an HR side and an Applicant side.</li>
-                  <li>Interview scheduling.</li>
-                  <li>
-                    Complete hiring pipeline from job posting, AI candidate
-                    scoring, interview scheduling, to hiring.
-                  </li>
-                </ul>
-              </div>
-
-              {/* Tech Stack */}
-              <div className="mt-4 flex flex-wrap gap-2">
-                <span className="px-2.5 py-1 bg-zinc-800 rounded-full text-xs md:text-sm text-zinc-300">
-                  MERN Stack
-                </span>
-                <span className="px-2.5 py-1 bg-zinc-800 rounded-full text-xs md:text-sm text-zinc-300">
-                  OpenAI API
-                </span>
-                <span className="px-2.5 py-1 bg-zinc-800 rounded-full text-xs md:text-sm text-zinc-300">
-                  MongoDB
-                </span>
-                <span className="px-2.5 py-1 bg-zinc-800 rounded-full text-xs md:text-sm text-zinc-300">
-                  Google
-                </span>
-              </div>
-            </div>
-          </div>
+        {/* Section header */}
+        <div className="flex items-baseline gap-5 mb-5">
+          <h2
+            className="font-display italic font-bold"
+            style={{
+              fontSize: "clamp(1.8rem, 4vw, 4.5rem)",
+              color: "var(--color-text-primary)",
+            }}
+          >
+            Projects
+          </h2>
+          <span
+            className="font-body text-xs uppercase tracking-[0.3em]"
+            style={{ color: "var(--color-muted)" }}
+          >
+            03
+          </span>
         </div>
 
-        {/* DevJourney Project */}
-        <div className="w-full md:w-[45%] xl:w-[49%] shrink-0">
-          <div className="bg-zinc-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-            <div className="p-4 md:p-5">
-              <Link
-                href="https://github.com/OMISENKER/my-developer-journey"
-                target="_blank"
-              >
-                <h3 className="text-lg md:text-xl font-ocra font-bold mb-2 text-white hover:underline">
-                  MyDevJourney WebApp - NextJS + MongoDB
-                </h3>
-              </Link>
+        <div className="ruled-line" />
 
-              <div className="mb-3">
-                <Link
-                  href="https://drive.google.com/file/d/1jEO6I6FzqrUZ7C12nTCZdKSfeI9aGr7u/view?usp=sharing"
-                  target="_blank"
+        {/* Project list */}
+        <div
+          className="overflow-y-auto inner-scroll"
+          style={{ maxHeight: "calc(100svh - 11rem)" }}
+        >
+          {projects.map((project, i) => (
+            <div key={i}>
+              <div className="py-5 grid grid-cols-[auto_1fr] gap-4 md:gap-8 items-start">
+
+                {/* Gold number */}
+                <span
+                  className="font-display font-bold leading-none select-none"
+                  style={{
+                    fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
+                    color: "var(--color-accent)",
+                    opacity: 0.45,
+                  }}
                 >
-                  <p className="text-xs md:text-sm text-emerald-500 hover:underline">
-                    Early stages | Hackathon Winning WebApp!
-                  </p>
-                </Link>
-              </div>
-
-              {/* Project Video */}
-              <div className="bg-zinc-800 h-24 md:h-32 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
-                <video
-                  className="w-full h-full object-cover"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                >
-                  <source src="/videos/devjourney.webm" type="video/webm" />
-                </video>
-              </div>
-
-              {/* Project Description */}
-              <div className="text-zinc-300 space-y-1.5">
-                <p className="text-sm md:text-base">
-                  Inspired by Duolingo&apos;s day streaks and YT Music Recap:
-                </p>
-                <ul className="list-disc list-inside space-y-1 ml-2 text-xs md:text-sm">
-                  <li>
-                    A Web App where Developers with any experience can Sign-in
-                    using GitHub OAuth to set their developer goals and track
-                    their daily learnings.
-                  </li>
-                  <li>
-                    They will get Developer Recap which will give them insights
-                    if they are pushing toward their goals.
-                  </li>
-                  <li>Their Daily goal streaks would also be counted.</li>
-                  <li>All data would be sourced from their GitHub account.</li>
-                </ul>
-              </div>
-
-              {/* Tech Stack */}
-              <div className="mt-4 flex flex-wrap gap-2">
-                <span className="px-2.5 py-1 bg-zinc-800 rounded-full text-xs md:text-sm text-zinc-300">
-                  Next.js
+                  {project.number}
                 </span>
-                <span className="px-2.5 py-1 bg-zinc-800 rounded-full text-xs md:text-sm text-zinc-300">
-                  MongoDB
-                </span>
-                <span className="px-2.5 py-1 bg-zinc-800 rounded-full text-xs md:text-sm text-zinc-300">
-                  GitHub OAuth
-                </span>
+
+                {/* Content + media */}
+                <div className="flex flex-col md:flex-row gap-4 items-start">
+
+                  {/* Info */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-baseline gap-3 mb-2">
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-auric font-display italic font-bold"
+                        style={{ fontSize: "clamp(1.1rem, 2.2vw, 2.2rem)" }}
+                      >
+                        {project.name}
+                      </a>
+                      <span
+                        className="font-body text-xs uppercase tracking-wider px-2 py-0.5"
+                        style={{
+                          border: "1px solid rgba(201, 168, 76, 0.4)",
+                          color: "var(--color-accent)",
+                        }}
+                      >
+                        {project.status}
+                      </span>
+                    </div>
+                    <p
+                      className="font-body text-xs lg:text-sm leading-relaxed mb-3"
+                      style={{ color: "var(--color-muted)" }}
+                    >
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.stack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="font-body text-xs uppercase tracking-wide px-2 py-0.5"
+                          style={{
+                            border: "1px solid rgba(201, 168, 76, 0.3)",
+                            color: "var(--color-text-primary)",
+                          }}
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Media */}
+                  <div
+                    className="w-full md:w-44 h-24 md:h-28 shrink-0 overflow-hidden flex items-center justify-center"
+                    style={{ border: "1px solid var(--color-border)" }}
+                  >
+                    {project.media.type === "video" ? (
+                      <video
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      >
+                        <source src={project.media.src} type="video/webm" />
+                      </video>
+                    ) : project.media.type === "image" ? (
+                      <Image
+                        src={project.media.src}
+                        alt={project.media.alt}
+                        width={400}
+                        height={225}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <span
+                        className="font-body text-xs tracking-wider text-center px-3"
+                        style={{ color: "var(--color-muted)" }}
+                      >
+                        {project.media.text}
+                      </span>
+                    )}
+                  </div>
+
+                </div>
               </div>
+              {i < projects.length - 1 && <div className="ruled-line" />}
             </div>
-          </div>
+          ))}
         </div>
+
       </div>
-    </section>
+    </div>
   );
 }

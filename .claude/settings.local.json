@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/domin/.claude//**)",
+      "Read(//c/Users/domin/.claude/skills//**)",
+      "Bash(dir \"C:\\\\Users\\\\domin\\\\Documents\\\\GitHub\\\\devdom\")",
+      "Bash(npm run:*)",
+      "Bash(npx next:*)",
+      "Bash(node_modules/.bin/next build:*)",
+      "Bash(cmd /c \"npm run build\")"
+    ]
+  }
+}

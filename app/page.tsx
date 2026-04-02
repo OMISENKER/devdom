@@ -1,85 +1,35 @@
-"use client";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 import Hero from "./components/hero";
 import AboutMe from "./components/about-me";
 import Experience from "./components/experience";
 import Projects from "./components/projects";
 import SkillsTools from "./components/skills-tools";
-import Certificates from "./components/certificates";
+import Credentials from "./components/credentials";
+import ScrollReveal from "./components/scroll-reveal";
+import FabButtons from "./components/fab-buttons";
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
-  const heroRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setScrolled(!entry.isIntersecting);
-      },
-      {
-        threshold: 0.6,
-        rootMargin: "-100px 0px",
-      }
-    );
-
-    if (heroRef.current) {
-      observer.observe(heroRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    // Ensure the page starts at the top
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
-    <main className="h-svh w-full snap-y snap-mandatory overflow-y-scroll bg-background">
-      <div
-        className={`fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 transition-all duration-500 ease-in-out will-change-transform pointer-events-none ${
-          scrolled
-            ? "top-[2.5rem] transform -translate-x-1/2 scale-[0.4] md:scale-[0.35] lg:scale-[0.25]"
-            : ""
-        }`}
-      >
-        <Image
-          src="/logos/Logov6white.svg"
-          alt="DevDom"
-          width={800}
-          height={200}
-          className="aspect-6/1 scale-150 md:scale-100"
-          priority
-        />
-      </div>
-
-      <div
-        ref={heroRef}
-        className="h-svh mt-0 top-0 w-full snap-start flex items-center justify-center"
-      >
+    <main className="snap-container">
+      <ScrollReveal />
+      <FabButtons />
+      <header className="h-svh w-full snap-start">
         <Hero />
-      </div>
-
-      <section className="h-dvh w-full snap-start flex items-center justify-center">
+      </header>
+      <section id="about" className="h-svh w-full snap-start reveal">
         <AboutMe />
       </section>
-
-      <section className="h-dvh w-full snap-start flex items-center justify-center">
+      <section id="experience" className="h-svh w-full snap-start reveal">
         <Experience />
       </section>
-
-      <section className="h-dvh w-full snap-start flex items-center justify-center">
+      <section id="projects" className="h-svh w-full snap-start reveal">
         <Projects />
       </section>
-
-      <section className="h-dvh w-full snap-start flex items-center justify-center">
+      <section id="skills" className="h-svh w-full snap-start reveal">
         <SkillsTools />
       </section>
-
-      <section className="h-dvh w-full snap-start flex items-center justify-center">
-        <Certificates />
-      </section>
+      <footer id="credentials" className="h-svh w-full snap-start reveal">
+        <Credentials />
+      </footer>
     </main>
   );
 }

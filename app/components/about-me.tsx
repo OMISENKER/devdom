@@ -1,67 +1,92 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export default function AboutMe() {
   return (
-    <div className="h-full w-full flex items-center justify-center px-4 md:px-0">
-      <div className="grid grid-cols-1 md:grid-cols-5 w-full md:w-2/3 lg:w-1/2 gap-6 items-center justify-center">
-        <div className="col-span-1 md:col-span-2 flex items-center justify-center relative">
+    <div className="h-svh w-full flex items-center justify-center px-8 md:px-16 lg:px-24 xl:px-32">
+      <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+
+        {/* Section indicator — desktop only */}
+        <div className="hidden md:flex md:col-span-2 flex-col justify-start select-none">
+          <span
+            className="font-display font-bold leading-none"
+            style={{
+              fontSize: "clamp(6rem, 12vw, 10rem)",
+              color: "var(--color-muted)",
+            }}
+          >
+            01
+          </span>
+          <span
+            className="font-body text-xs uppercase tracking-[0.3em] mt-1"
+            style={{ color: "var(--color-muted)" }}
+          >
+            About
+          </span>
+        </div>
+
+        {/* Content */}
+        <div className="col-span-1 md:col-span-3 flex flex-col sm:flex-row gap-6 items-start">
           <Image
             src="/images/portrait-1.jpg"
-            alt="Profile"
+            alt="Dominique Eclavia"
             width={315}
             height={395}
-            className="rounded-3xl z-20 w-[200px] md:w-[315px] h-auto"
-            priority
+            className="w-[130px] md:w-[150px] h-auto shrink-0 object-cover"
+            style={{ border: "1px solid rgba(201, 168, 76, 0.25)" }}
           />
-        </div>
-        <div className="col-span-1 md:col-span-3 flex flex-col items-center md:items-start justify-start text-center md:text-left">
-          <p className="font-nunito text-base md:text-lg font-regular ml-1 ">
-            Hi I{"'"}m,
-          </p>
-          <h1 className="font-ocra text-2xl md:text-4xl font-bold mt-2">
-            Dominique Eclavia
-          </h1>
-          <p className="font-nunito text-base md:text-lg font-regular mt-4 mx-10 md:mx-1 text-pretty">
-            A NextJS and MERN Full-Stack Web Developer with over a year of
-            combined work and organizational experience.
-          </p>
-          <p className="font-nunito text-base md:text-lg font-regular mt-8 md:mt-12">
-            Connect with me:
-          </p>
-          <div className="flex mt-2 gap-4 md:gap-6">
-            <Link href="mailto:dominiquealvarez8888@gmail.com" target="_blank">
-              <Image
-                src="/assets/contacts1.png"
-                alt="Gmail"
-                width={40}
-                height={40}
-                className="w-8 md:w-10 h-auto aspect-square"
-              />
-            </Link>
-            <Link href="https://github.com/OMISENKER" target="_blank">
-              <Image
-                src="/assets/contacts2.png"
-                alt="Github"
-                width={40}
-                height={40}
-                className="w-8 md:w-10 h-auto aspect-square"
-              />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/dominique-eclavia"
-              target="_blank"
+          <div className="flex flex-col">
+            <h2
+              className="font-display italic font-bold leading-tight"
+              style={{
+                fontSize: "clamp(1.4rem, 2.5vw, 2.8rem)",
+                color: "var(--color-text-primary)",
+              }}
             >
-              <Image
-                src="/assets/contacts3.png"
-                alt="Linkedin"
-                width={40}
-                height={40}
-                className="w-8 md:w-10 h-auto aspect-square"
-              />
-            </Link>
+              Dominique Eclavia
+              <span
+                className="font-body not-italic font-normal text-xs ml-2 align-middle"
+                style={{ color: "var(--color-muted)" }}
+              >
+                he/him
+              </span>
+            </h2>
+            <p
+              className="font-body text-sm lg:text-base xl:text-lg mt-3 leading-relaxed"
+              style={{ color: "var(--color-text-primary)", maxWidth: "32ch" }}
+            >
+              Web developer with over a year of experience building dynamic and
+              responsive websites using ReactJS and NextJS. Strong foundation in
+              front-end development with a passion for creating user-friendly,
+              efficient, and scalable web applications.
+            </p>
+            <div className="ruled-line my-4" />
+            <div className="flex gap-6">
+              <a
+                href="https://www.linkedin.com/in/dominique-eclavia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-auric font-body text-xs uppercase tracking-[0.2em]"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://github.com/OMISENKER"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-auric font-body text-xs uppercase tracking-[0.2em]"
+              >
+                GitHub
+              </a>
+              <a
+                href="mailto:dominiquealvarez8888@gmail.com"
+                className="link-auric font-body text-xs uppercase tracking-[0.2em]"
+              >
+                Email
+              </a>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   );
