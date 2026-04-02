@@ -4,7 +4,6 @@ export default function AboutMe() {
   return (
     <div className="h-svh w-full flex items-center justify-center px-8 md:px-16 lg:px-24 xl:px-32">
       <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
-
         {/* Section indicator — desktop only */}
         <div className="hidden md:flex md:col-span-2 flex-col justify-start select-none">
           <span
@@ -26,14 +25,6 @@ export default function AboutMe() {
 
         {/* Content */}
         <div className="col-span-1 md:col-span-3 flex flex-col sm:flex-row gap-6 items-start">
-          <Image
-            src="/images/portrait-1.jpg"
-            alt="Dominique Eclavia"
-            width={315}
-            height={395}
-            className="w-[130px] md:w-[150px] h-auto shrink-0 object-cover"
-            style={{ border: "1px solid rgba(201, 168, 76, 0.25)" }}
-          />
           <div className="flex flex-col">
             <h2
               className="font-display italic font-bold leading-tight"
@@ -54,7 +45,7 @@ export default function AboutMe() {
               className="font-body text-sm lg:text-base xl:text-lg mt-3 leading-relaxed"
               style={{ color: "var(--color-text-primary)", maxWidth: "32ch" }}
             >
-              Web developer with over a year of experience building dynamic and
+              Web developer with 2 years+ of experience building dynamic and
               responsive websites using ReactJS and NextJS. Strong foundation in
               front-end development with a passion for creating user-friendly,
               efficient, and scalable web applications.
@@ -86,7 +77,6 @@ export default function AboutMe() {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );
