@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function AboutMe() {
   return (
     <div className="h-svh w-full flex items-center justify-center px-8 md:px-16 lg:px-24 xl:px-32">
