@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 
 type MediaConfig =
   | { type: "image"; src: string; alt: string }
@@ -24,7 +25,11 @@ const projects: Project[] = [
     description:
       "Full-stack coffee shop discovery platform with a public landing page and a fully functional app with real-time data.",
     stack: ["ReactJS", "Supabase", "Mapbox", "Cloudflare"],
-    media: { type: "placeholder", text: "wheretocoffee.app" },
+    media: {
+      type: "image",
+      src: "/images/wtc-landscape.png",
+      alt: "WhereToCoffee",
+    },
   },
   {
     number: "02",
@@ -34,7 +39,11 @@ const projects: Project[] = [
     description:
       "HR Applicant Tracking System with AI candidate scoring, interview scheduling, and a complete hiring pipeline.",
     stack: ["MERN Stack", "OpenAI API", "MongoDB"],
-    media: { type: "image", src: "/images/ats.png", alt: "AI-driven Applicant Tracking System" },
+    media: {
+      type: "image",
+      src: "/images/ats.png",
+      alt: "AI-driven Applicant Tracking System",
+    },
   },
   {
     number: "03",
@@ -52,7 +61,6 @@ export default function Projects() {
   return (
     <div className="h-svh w-full flex flex-col justify-center px-8 md:px-16 lg:px-24 xl:px-32">
       <div className="w-full max-w-5xl">
-
         {/* Section header */}
         <div className="flex items-baseline gap-5 mb-5">
           <h2
@@ -82,7 +90,6 @@ export default function Projects() {
           {projects.map((project, i) => (
             <div key={i}>
               <div className="py-5 grid grid-cols-[auto_1fr] gap-4 md:gap-8 items-start">
-
                 {/* Gold number */}
                 <span
                   className="font-display font-bold leading-none select-none"
@@ -97,7 +104,6 @@ export default function Projects() {
 
                 {/* Content + media */}
                 <div className="flex flex-col md:flex-row gap-4 items-start">
-
                   {/* Info */}
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-baseline gap-3 mb-2">
@@ -105,13 +111,17 @@ export default function Projects() {
                         href={project.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="link-auric font-display italic font-bold"
+                        className="link-auric font-display italic font-bold flex items-center gap-1 md:gap-2"
                         style={{ fontSize: "clamp(1.1rem, 2.2vw, 2.2rem)" }}
                       >
-                        {project.name}
+                        {project.name}{" "}
+                        <span>
+                          {" "}
+                          <ExternalLink />
+                        </span>
                       </a>
                       <span
-                        className="font-body text-xs uppercase tracking-wider px-2 py-0.5"
+                        className="font-body text-xs uppercase tracking-wider px-2 py-0.5 bg-color-accent font-semibold rounded-sm"
                         style={{
                           border: "1px solid rgba(201, 168, 76, 0.4)",
                           color: "var(--color-accent)",
@@ -144,7 +154,7 @@ export default function Projects() {
 
                   {/* Media */}
                   <div
-                    className="w-full md:w-44 h-24 md:h-28 shrink-0 overflow-hidden flex items-center justify-center"
+                    className="w-full md:w-44 h-24 md:h-28 lg:w-60 shrink-0 overflow-hidden flex items-center justify-center rounded"
                     style={{ border: "1px solid var(--color-border)" }}
                   >
                     {project.media.type === "video" ? (
@@ -174,14 +184,12 @@ export default function Projects() {
                       </span>
                     )}
                   </div>
-
                 </div>
               </div>
               {i < projects.length - 1 && <div className="ruled-line" />}
             </div>
           ))}
         </div>
-
       </div>
     </div>
   );

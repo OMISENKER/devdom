@@ -147,7 +147,7 @@ export default function Credentials() {
             className="font-body text-xs"
             style={{ color: "var(--color-muted)" }}
           >
-            Dominique Eclavia © 2025
+            Dominique Eclavia © 2026
           </p>
         </div>
       </div>
